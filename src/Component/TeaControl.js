@@ -1,6 +1,7 @@
 import React from "react";
 import TeaList from "./TeaList";
 import NewTeaForm from "./NewTeaForm";
+import TeaDetail from "./TeaDetail";
 
 
 class TeaControl extends React.Component {
@@ -35,17 +36,47 @@ class TeaControl extends React.Component {
                   formVisibleOnPage: false });
   }
 
+  handleChangingSelectedTea = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
+    this.setState({selectedTea: selectedTea});
+  }
 
+  handleDeletingTea = (id) => {
+    const newMainTeaList = this.state.mainTeaList.filter(tea => tea.id !== id);
+    this.setState({
+      mainTeaList: newMainTeaList,
+      selectedTea: null
+    });
+  }
+
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
+  }
+
+  handleEditingTeaInList = (teaToEdit) => {
+    const editedMainTeaList = this.state.mainTeaList
+      .filter(tea => tea.id !== this.state.selectedTea.id)
+      .concat(teaToEdit);
+    this.setState({
+        mainTeaList: editedMainTeaList,
+        editing: false,
+        selectedTea: null
+      });
+  }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    
-    if (this.state.formVisibleOnPage) {
+
+    if (this.state.selectedTea != null) {
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} />
+      buttonText= "Return to Item List" 
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList} />
-      buttonText = "Return to Item List";
+      buttonText = "Return to Tea List";
     } else {
-      currentlyVisibleState = <TeaList teaList={this.state.mainTeaList} />
+      currentlyVisibleState = <TeaList teaList={this.state.mainTeaList} onTeaSelection={this.handleChangingSelectedTea}/>
       buttonText = "Add Tea";
     }
     return (
