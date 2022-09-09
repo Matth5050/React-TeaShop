@@ -2,6 +2,7 @@ import React from "react";
 import TeaList from "./TeaList";
 import NewTeaForm from "./NewTeaForm";
 import TeaDetail from "./TeaDetail";
+import EditTeaForm from "./EditTeaForm";
 
 
 class TeaControl extends React.Component {
@@ -69,8 +70,11 @@ class TeaControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedTea != null) {
-      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} />
+    if (this.state.editing ) {      
+      currentlyVisibleState = <EditTeaForm tea = {this.state.selectedTea} onEditTea = {this.handleEditingTeaInList} />
+      buttonText = "Return to Item List"; 
+    } else if (this.state.selectedTea != null) {
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} onClickingEdit={this.handleEditClick} />
       buttonText= "Return to Item List" 
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList} />
