@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
 
 function NewTeaForm(props){
+
   return (
     <React.Fragment>
       <ReusableForm
@@ -19,7 +20,7 @@ function NewTeaForm(props){
       name: event.target.name.value, 
       origin: event.target.origin.value, 
       price: event.target.price.value, 
-      roast: event.target.roast.value,
+      steep: event.target.steep.value,
       id: v4()
     });
   }
