@@ -11,10 +11,10 @@ function TeaList(props) {
           {props.teaList.map((tea) =>
           <Tea 
           whenTeaClicked = { props.onTeaSelection }
-          type={tea.name}
-          title={tea.origin}
-          description={tea.price}
-          quantity={tea.roast}
+          name={tea.name}
+          origin={tea.origin}
+          price={tea.price}
+          steep={tea.steep}
           id={tea.id}
           key={tea.id}/>
           )}
