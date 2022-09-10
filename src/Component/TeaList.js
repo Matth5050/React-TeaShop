@@ -2,7 +2,6 @@ import React from "react";
 import Tea from "./Tea";
 import PropTypes from "prop-types";
 
-
 function TeaList(props) {
 
     return (
@@ -15,10 +14,13 @@ function TeaList(props) {
           origin={tea.origin}
           price={tea.price}
           steep={tea.steep}
+          inventory={tea.inventory}
           id={tea.id}
-          key={tea.id}/>
+          key={tea.id}
+          />
           )}
         </div> 
+      
       </React.Fragment>
     );
   }

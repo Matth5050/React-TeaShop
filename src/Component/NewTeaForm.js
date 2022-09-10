@@ -21,6 +21,7 @@ function NewTeaForm(props){
       origin: event.target.origin.value, 
       price: event.target.price.value, 
       steep: event.target.steep.value,
+      inventory:5,
       id: v4()
     });
   }

@@ -13,8 +13,7 @@ class TeaControl extends React.Component {
       formVisibleOnPage: false,
       mainTeaList: [],
       selectedTea: null,
-      editing: false,
-      inventory: 0
+      editing: false
     };
   }
 
@@ -68,8 +67,39 @@ class TeaControl extends React.Component {
   }
 
   handleRestockClick = () => {
-    const restock = this.state.inventory + 130;
-    this.setState({inventory:restock})
+    if(this.state.selectedTea.inventory !== 1000) {
+      const TeaToRestock = this.state.selectedTea;
+      const changedTea = {
+          name: TeaToRestock.name,
+          origin: TeaToRestock.origin,
+          price: TeaToRestock.price,
+          steep: TeaToRestock.steep,
+          inventory: TeaToRestock.inventory += 130,
+          id: TeaToRestock.id,
+          key: TeaToRestock.id
+      }
+      this.handleChangingSelectedTea(changedTea.id)
+    } else {
+      this.handleAddingNewTeaToList(this.state.selectedTea.id)
+    }
+  }
+
+  handleBuyClick = () => {
+    if(this.state.selectedTea.inventory !== 0) {
+      const TeaToRestock = this.state.selectedTea;
+      const changedTea = {
+          name: TeaToRestock.name,
+          origin: TeaToRestock.origin,
+          price: TeaToRestock.price,
+          steep: TeaToRestock.steep,
+          inventory: TeaToRestock.inventory -= 1,
+          id: TeaToRestock.id,
+          key: TeaToRestock.id
+      }
+      this.handleChangingSelectedTea(changedTea.id)
+    } else {
+      this.handleAddingNewTeaToList(this.state.selectedTea.id)
+    }
   }
 
   render() {
@@ -80,7 +110,7 @@ class TeaControl extends React.Component {
       currentlyVisibleState = <EditTeaForm tea = {this.state.selectedTea} onEditTea = {this.handleEditingTeaInList} />
       buttonText = "Return to Tea List"; 
     } else if (this.state.selectedTea != null) {
-      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} onClickingEdit={this.handleEditClick} counter={this.state.inventory} onRestockClick={this.handleRestockClick} />
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} onClickingEdit={this.handleEditClick} counter={this.state.inventory} onRestockClick={this.handleRestockClick} onBuyClick={this.handleBuyClick}/>
       buttonText= "Return to Tea List" 
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList} />
