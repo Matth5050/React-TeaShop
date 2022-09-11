@@ -20,10 +20,10 @@ function ReusableForm(props) {
         <input
           type='text'
           name='steep'
-          placeholder='Steep' />
+          placeholder='Steep time in minutes' />
         <button type='submit'>{props.buttonText}</button>
       </form>
-</React.Fragment>
+    </React.Fragment>
   )
 }
 
