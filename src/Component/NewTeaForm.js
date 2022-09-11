@@ -13,7 +13,6 @@ function NewTeaForm(props){
     </React.Fragment>
   );
 
-
   function handleNewTeaFormSubmission(event) {
     event.preventDefault();
     props.onNewTeaCreation({
