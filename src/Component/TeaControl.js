@@ -96,7 +96,8 @@ class TeaControl extends React.Component {
           id: TeaToRestock.id,
           key: TeaToRestock.id
       }
-      this.handleChangingSelectedTea(changedTea.id)
+      // this.handleChangingSelectedTea(changedTea.id)
+      this.setState({selectedTea: changedTea})
     } else {
       this.handleAddingNewTeaToList(this.state.selectedTea.id)
     }
