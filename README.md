@@ -24,7 +24,7 @@
 * Copy the git repository url
 * Open a shell program & navigate to your machine's desktop
 * Clone the repository using the copied URL and the "git clone" command
-* In the shell program, navigate to the root directory of the newly created file called "React-Tracker"
+* In the shell program, navigate to the root directory of the newly created file called "React-TeaShop"
 * Next, run the "npm install" command to install dependencies
 * After that updates, in the root directory type "npm run start" to start the program
 * If the web page does not open on it's own, open a web browser and plug "http://localhost:3000/" into the URL bar
