@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
 body {
   margin: 0;
@@ -6,6 +7,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(228,255,132);
+  background: -moz-linear-gradient(245deg, rgba(228,255,132,1) 29%, rgba(110,247,83,1) 71%);
+  background: -webkit-linear-gradient(245deg, rgba(228,255,132,1) 29%, rgba(110,247,83,1) 71%);
+  background: linear-gradient(245deg, rgba(228,255,132,1) 29%, rgba(110,247,83,1) 71%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e4ff84",endColorstr="#6ef753",GradientType=1);
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.header {
+  color:orange;
+}
+
+.listName {
+  color:lightcoral
 }
 
 code {

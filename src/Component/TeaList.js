@@ -6,7 +6,8 @@ function TeaList(props) {
 
     return (
       <React.Fragment>
-        <div>
+        <div className="form-group d-flex flex-row justify-content-center text-center row">
+          <div className="mb-2">
           {props.teaList.map((tea) =>
           <Tea 
           whenTeaClicked = { props.onTeaSelection }
@@ -19,6 +20,7 @@ function TeaList(props) {
           key={tea.id}
           />
           )}
+          </div>
         </div> 
       
       </React.Fragment>

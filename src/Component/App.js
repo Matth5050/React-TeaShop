@@ -7,8 +7,10 @@ import TeaControl from "./TeaControl";
 function App(){
   return ( 
     <React.Fragment>
-      <Header />
-      <TeaControl />
+      <div className="container">
+        <Header />
+        <TeaControl />
+      </div>
     </React.Fragment>
   );
 }

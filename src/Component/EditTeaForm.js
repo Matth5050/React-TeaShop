@@ -8,7 +8,15 @@ function EditTeaForm (props) {
 
   function handleEditTeaFormSubmission(event) {
     event.preventDefault();
-    props.onEditTea({name: event.target.name.value, origin: event.target.origin.value, price: event.target.price.value, steep: event.target.steep.value, id: tea.id});
+    props.onEditTea(
+      {
+        name: event.target.name.value, 
+        origin: event.target.origin.value, price: 
+        event.target.price.value, steep: 
+        event.target.steep.value, 
+        inventory: tea.inventory,
+        id: tea.id
+      });
   }
   return (
     <React.Fragment>
