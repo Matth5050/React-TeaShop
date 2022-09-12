@@ -17,7 +17,7 @@
 
  ## Webpage Diagram
 
-![Diagram](https://github.com/matth5050/React-TeaShop/blob/main/diagram?raw=true)
+![Diagram](https://github.com/Matth5050/React-TeaShop/blob/main/public/diagram.png?raw=true)
 
 ## Setup/Installation
 
