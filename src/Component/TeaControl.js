@@ -78,10 +78,8 @@ class TeaControl extends React.Component {
           id: TeaToRestock.id,
           key: TeaToRestock.id
       }
-      this.handleChangingSelectedTea(changedTea.id)
-    } else {
-      this.handleAddingNewTeaToList(this.state.selectedTea.id)
-    }
+      this.setState({selectedTea: changedTea})
+    } 
   }
 
   handleBuyClick = () => {
@@ -96,11 +94,8 @@ class TeaControl extends React.Component {
           id: TeaToRestock.id,
           key: TeaToRestock.id
       }
-      // this.handleChangingSelectedTea(changedTea.id)
       this.setState({selectedTea: changedTea})
-    } else {
-      this.handleAddingNewTeaToList(this.state.selectedTea.id)
-    }
+    } 
   }
 
   render() {
@@ -123,7 +118,9 @@ class TeaControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button> 
+        <div className="funcBtn text-center">
+          <button className="btn btn-outline-primary" onClick={this.handleClick}>{buttonText}</button> 
+        </div>
       </React.Fragment>
     );
   }
