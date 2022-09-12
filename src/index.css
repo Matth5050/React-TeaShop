@@ -13,7 +13,10 @@ body {
   background: linear-gradient(245deg, rgba(228,255,132,1) 29%, rgba(110,247,83,1) 71%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e4ff84",endColorstr="#6ef753",GradientType=1);
   font-family: 'Roboto Slab', serif;
-
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .header {
